@@ -8,7 +8,12 @@ except ImportError:
   pass
 
 def vocabulary(event, context):
-    word = unquote(event['pathParameters']['word'])
+    result = ""
+    try:
+        word = unquote(event['pathParameters']['word'])
+    except Exception as e:
+        word = ""
+
     response = {
         "statusCode": 200,
         "body": "<html><body>{}</body></html>".format(getMean(word))

@@ -10,6 +10,8 @@ map = {
 }
 
 def getMean(word):
+    if word == "":
+        return "please enter a word"
     url = "https://endic.naver.com/search.nhn?sLn=en&query={}&searchOption=all&isOnlyViewEE=Y".format(word)
     pageString = requests.get(url).content
 
